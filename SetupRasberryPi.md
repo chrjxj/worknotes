@@ -64,7 +64,7 @@ sudo apt-get install zip ¨Cy
 ```
 
 http://scikit-learn.org/stable/developers/advanced_installation.html
-```
+
 
 
 ### install Torch
@@ -130,10 +130,19 @@ make install
 import cv2
 ```
 
-### °²×°dlib
+### Install dlib
+
+Warning: The resource [issue](https://www.raspberrypi.org/forums/viewtopic.php?f=32&t=149515) on Rasberry when building.
+Solution: stop non-essential services
+```
+sudo service --status-all
+sudo service ABC stop
+```
+
+See steps on http://dlib.net
 
 ```
-download source code from http://dlib.net/
+download source code from http://dlib.net
 sudo python setup.py install
 
 # make sure 'install' the compiled bin to python lib path

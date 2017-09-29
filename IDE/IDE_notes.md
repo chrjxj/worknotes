@@ -1,26 +1,30 @@
-# IDE Notes
+ï»¿# IDE Notes
 
 
 ### PyCharm
 
-ËÑË÷¿ì½İ¼üµÄ×éºÏ: Press Ctrl+Shift+A (Find Action feature) and type keyword (e.g. 'column') 
+æœç´¢å¿«æ·é”®çš„ç»„åˆ: Press Ctrl+Shift+A (Find Action feature) and type keyword (e.g. 'column') 
 
-±à¼­
-Column Selection:  ```Alt +Shift+Insert```
-```ALT ×ó¼ü```£º ÁĞÄ£Ê½Ñ¡Ôñ
-```Ctrl + /``` ĞĞ×¢ÊÍ
-```Ctrl + Shift + /``` ¿é×¢ÊÍ
-```Ctrl + Delete``` É¾³ıµ½×Ö·û½áÊø
-```Ctrl + Backspace``` É¾³ıµ½×Ö·û¿ªÊ¼
-```CTRY Y```: É¾³ıµ±Ç°ĞĞ
-```Ctrl + Space``` »ù±¾µÄ´úÂëÍê³É£¨Àà¡¢·½·¨¡¢ÊôĞÔ£©
-```Ctrl + Alt + L``` ´úÂë¸ñÊ½»¯
-```CTRL W```: Ñ¡ÖĞµ±Ç°µ¥´Ê£¬¼ÌĞø°´£¬Ñ¡ÖĞËüËùÊôµÄĞĞ/IF/·½·¨.
+ç¼–è¾‘
 
-²éÕÒ/Ìæ»»(Search/Replace)
-```F3``` ÏÂÒ»¸ö   ```Shift + F3``` Ç°Ò»¸ö
-```Ctrl + Shift + F``` È«¾Ö²éÕÒ  ```Ctrl + Shift + R``` È«¾ÖÌæ»»
+- Column Selection:  ```Alt +Shift+Insert```
+- ```ALT å·¦é”®```ï¼š åˆ—æ¨¡å¼é€‰æ‹©
+- ```Ctrl + /``` è¡Œæ³¨é‡Š
+- ```Ctrl + Shift + /``` å—æ³¨é‡Š
+- ```Ctrl + Delete``` åˆ é™¤åˆ°å­—ç¬¦ç»“æŸ
+- ```Ctrl + Backspace``` åˆ é™¤åˆ°å­—ç¬¦å¼€å§‹
+- ```CTRY Y```: åˆ é™¤å½“å‰è¡Œ
+- ```Ctrl + Space``` åŸºæœ¬çš„ä»£ç å®Œæˆï¼ˆç±»ã€æ–¹æ³•ã€å±æ€§ï¼‰
+- ```Ctrl + Alt + L``` ä»£ç æ ¼å¼åŒ–
+- ```CTRL W```: é€‰ä¸­å½“å‰å•è¯ï¼Œç»§ç»­æŒ‰ï¼Œé€‰ä¸­å®ƒæ‰€å±çš„è¡Œ/IF/æ–¹æ³•.
+
+æŸ¥æ‰¾/æ›¿æ¢(Search/Replace)
+
+- ```F3``` ä¸‹ä¸€ä¸ª   ```Shift + F3``` å‰ä¸€ä¸ª
+- ```Ctrl + Shift + F``` å…¨å±€æŸ¥æ‰¾  ```Ctrl + Shift + R``` å…¨å±€æ›¿æ¢
 
 ![PyCharm Reference Card](res/PyCharm_ReferenceCard.png)
 
+
+### PyCharm and PyQT-4 or PyQT-5
 

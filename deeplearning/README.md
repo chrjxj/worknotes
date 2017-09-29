@@ -1,11 +1,11 @@
-# Deep Learning
+ï»¿# Deep Learning
 
 
 ### Andrew Ng
 
 [Ng's 5 DL classes on coursera](https://www.coursera.org/specializations/deep-learning)
 
-- class 1: Ò»Ğ©»ù´¡£¬´Ó¾ØÕóÔËËã£¬forward/backward poprogateµÈ½²Æğ£¬implement regression from  
+- class 1: ä¸€äº›åŸºç¡€ï¼Œä»çŸ©é˜µè¿ç®—ï¼Œforward/backward poprogateç­‰è®²èµ·ï¼Œimplement regression from  
 - class 2: 
 - class 3:
 - class 4: CNN for images
@@ -13,7 +13,7 @@
 
 Other video source for Ng's class:
 
-- ÍøÒ×: 
+- ç½‘æ˜“: 
 - Youtube playlists:
 
 
@@ -21,13 +21,13 @@ Other video source for Ng's class:
 ## Deep Learning
 
 - [deeplearningbook](http://www.deeplearningbook.org/)
-- [Deep Learning ¶ÁÊé±Ê¼Ç£¨ÖĞÎÄ£©] (https://github.com/exacity/simplified-deeplearning)
+- [Deep Learning è¯»ä¹¦ç¬”è®°ï¼ˆä¸­æ–‡ï¼‰](https://github.com/exacity/simplified-deeplearning)
 
 
 
 ## Convolutional neural network
 
-Resource£º
+Resourceï¼š
 
 - Stanford [cs231n](http://cs231n.github.io/convolutional-networks/)
 - http://colah.github.io/posts/2014-07-Understanding-Convolutions/
@@ -45,7 +45,7 @@ Resource£º
 
 ## Others
 
-Colah¡¯s blog¡¯s posts:
+Colahâ€™s blogâ€™s posts:
 
 - http://colah.github.io/posts/2014-03-NN-Manifolds-Topology/
 - http://colah.github.io/posts/2014-07-Understanding-Convolutions/
