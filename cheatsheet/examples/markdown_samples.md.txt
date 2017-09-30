@@ -1,0 +1,60 @@
+# Git Cheat Sheet 中文版 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+
+-----------------
+
+<p align="center">
+    <img alt="Git" src="./Img/git-logo.png" height="190" width="455">
+</p>
+
+------------------
+
+# Other Available Languages:
+1. [Arabic Git Cheat Sheet](https://github.com/flyhigher139/git-cheat-sheet/blob/master/other-sheets/git-cheat-sheet-ar.md)
+2. [English Git Cheat Sheet](https://github.com/flyhigher139/Git-Cheat-Sheet/blob/master/other-sheets/git-cheat-sheet-en.md)
+
+---------------------
+
+Git Cheat Sheet 中文版
+=====================
+
+### 索引
+* [配置](#配置)
+* [配置文件](#配置文件)
+* [创建](#创建)
+* [本地修改](#本地修改)
+---
+
+### 配置
+
+##### 列出当前配置：
+```
+$ git config --list
+```
+
+---------
+
+### 配置文件
+
+##### Repository配置对应的配置文件路径[--local]：
+```
+<repo>/.git/config
+```
+
+----------
+
+### 创建
+
+##### 复制一个已创建的仓库:
+
+```bash
+# 通过 SSH
+$ git clone ssh://user@domain.com/repo.git
+
+---
+
+
+### Commands
+<p align="center">
+    <img alt="Git" src="./Img/git-flow-commands.png" height="270" width="460">
+</p>
+<hr>
