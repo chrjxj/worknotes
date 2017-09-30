@@ -14,8 +14,8 @@
 ### Sheets
 
 <p align="center">
-    <img alt="Git" src="./img/atlassian-git-cheatsheet_01.png" height="400" width="250">
+    <img alt="Git" src="./img/atlassian-git-cheatsheet_01.png" width="400" height="250">
 </p>
 <p align="center">
-    <img alt="Git" src="./img/atlassian-git-cheatsheet_02.png" height="400" width="250">
+    <img alt="Git" src="./img/atlassian-git-cheatsheet_02.png" width="400" height="250">
 </p>
