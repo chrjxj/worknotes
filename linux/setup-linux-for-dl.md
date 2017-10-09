@@ -11,15 +11,10 @@ https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide
 ## Env
 
 ```
-
 sudo apt-get install -y build-essential cmake git pkg-config
-
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler
-
 sudo apt-get install -y libatlas-base-dev 
-
 sudo apt-get install -y --no-install-recommends libboost-all-dev
-
 sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 # Python 2.7 development files
@@ -78,10 +73,39 @@ make all -j4
 ```
 
 
+Another way
 
-## Install tensorflow
+```
+# Install cuda 
+# Get your deb cuda file from https://developer.nvidia.com/cuda-downloads
+sudo dpkg -i dev.file
+sudo apt update
+sudo apt install cuda
 
-[Install Tensorflow](https://www.tensorflow.org/install/install_linux#InstallingNativePip)
+# Add cuda to your PATH and install the toolkit
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+nvcc --version
+
+# Use the toolkit to check your CUDA capable devices
+cuda-install-samples-8.0.sh ~/.
+cd ~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
+make
+shutdown -r now
+./deviceQuery
+
+# Downloads cudnn deb files from the nvidia website: 
+# https://developer.nvidia.com/rdp/cudnn-download
+# Install cudnn
+tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz 
+sudo mv cuda/include/* /usr/local/cuda-8.0/include/.
+sudo mv cuda/lib64/* /usr/local/cuda-8.0/lib64/.
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+```
+
+
+## Install Tensorflow
+
+[Tensorflow.org Guide](https://www.tensorflow.org/install/install_linux#InstallingNativePip)
 
 ```
 pip install tensorflow-gpu==1.2 
@@ -91,3 +115,18 @@ pip install keras
 NOTE:
 
 - Tensorflow 1.3 require different ducnn lib
+
+
+## Re-install driver
+
+```
+# Remove anything linked to nvidia
+sudo apt-get remove --purge nvidia*
+sudo apt-get autoremove
+
+# Search for your driver
+apt search nvidia
+
+# Select one driver (the last one is a decent choice)
+sudo apt install nvidia-370
+```
