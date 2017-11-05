@@ -12,6 +12,8 @@ References:
 - run a container: ```docker run -it --rm -p 8888:8888 -v /mnt/docker_ubuntu:/usr/Downloads jupyter/scipy-notebook```
 - docker 的容器自动在开机启动```sudo docker run --restart=always ..```  
 - 登陆（链接）到容器: ```PID=$(docker inspect --format "{{ .State.Pid }}" <container>)``` and then ```nsenter --target $PID --mount --uts --ipc --net --pid```
+- 文件在host和docker container之间拷贝: ```docker cp <containerId>:/file/path/within/container /host/path/target```
+
 
 
 
