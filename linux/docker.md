@@ -27,7 +27,7 @@ https://hub.docker.com/r/jupyter/
 
 ```
 docker pull oddrationale/docker-shadowsocks
-docker run --name ss_server --restart=always -d -p 54001:54001 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 54001 -k whatsupec2 -m aes-256-cfb 
+docker run --name ss_server --restart=always -d -p 54001:54001 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 54001 -k whatsupec2 -m aes-256-cfb
 ```
 
 - d——容器启动后会进入后台
@@ -54,7 +54,7 @@ docker run \
 
 ```
 docker pull ubuntu:16.04
-docker run  --name medical-dev  --restart=always  -p 58888:8888  -d --privileged  ubuntu:16.04 
+docker run  --name medical-dev  --restart=always  -p 58888:8888  -d --privileged  ubuntu:16.04
 ```
 
 
@@ -71,8 +71,8 @@ sudo apt-get update
 sudo apt-get install \
  linux-image-extra-$(uname -r) \
  linux-image-extra-virtual
- 
-sudo apt-get update 
+
+sudo apt-get update
 sudo apt-get install \
  apt-transport-https \
  ca-certificates \
@@ -87,7 +87,7 @@ sudo apt-get update
 sudo apt-get install docker-ce
 
 sudo groupadd docker
-sudo usermod -a -G docker ${USR}
+sudo usermod -a -G docker ${USER}
 sudo service docker restart
 ```
 
