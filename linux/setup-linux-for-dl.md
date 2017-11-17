@@ -1,21 +1,22 @@
-﻿# Setup CUDA and Tensorflow on Ubuntu 16.04 # 
+﻿# Setup CUDA/cudnn/Tensorflow on Ubuntu 16.04
 
-
-## Install reference:
-
-http://shomy.top/2016/12/29/gpu-tensorflow-install/ 
-http://www.jianshu.com/p/f459f4ab0d99
-
-https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide
-
-## Env
+## Install nvidia driver
 
 ```
-sudo apt-get install -y build-essential cmake git pkg-config
-sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler
-sudo apt-get install -y libatlas-base-dev 
-sudo apt-get install -y --no-install-recommends libboost-all-dev
-sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
+# Remove anything linked to nvidia
+sudo apt-get remove --purge nvidia* && sudo apt-get autoremove
+
+# Search for your driver
+apt search nvidia
+# Select one driver (the last one is a decent choice)
+sudo apt install nvidia-375
+```
+
+## Install Libs
+```
+sudo apt-get install -y --no-install-recommends build-essential cmake git pkg-config \
+  libprotobuf-dev libleveldb-dev libsnappy-dev libhdf5-serial-dev protobuf-compiler \
+  libatlas-base-dev libboost-all-dev libgflags-dev libgoogle-glog-dev liblmdb-dev
 
 # Python 2.7 development files
 sudo apt-get install -y python-pip python-dev python-numpy python-scipy libopencv-dev
@@ -26,14 +27,13 @@ sudo apt-get install -y python3-dev python3-numpy python3-scipy libopencv-dev
 
 ## 安装CUDA and cudnn
 
-- Check env before start
-
+- Check env
 ```
 lspci -vnn | grep -i VGA -A 12
 sudo apt-cache search nvidia | grep -P '^nvidia-[0-9]+\s'
 ```
 
-- step 1, 从nvidia.com下载 [CUDA](https://developer.nvidia.com/cuda-downloads) and [cudnn](https://developer.nvidia.com/cudnn) 
+- step 1, 从nvidia.com下载 [CUDA](https://developer.nvidia.com/cuda-downloads) and [cudnn](https://developer.nvidia.com/cudnn)
 - step 2, 禁用开源驱动 ```vim /etc/modprobe.d/blacklist-nouveau.conf```, 文件内容入下，最后更新 ```sudo update-initramfs -u```
 ```
 blacklist nouveau
@@ -44,71 +44,36 @@ options nouveau modeset=0
 sudo /etc/init.d/gdm stop
 sudo /etc/init.d/gdm status
 ```
-
-- step4, 安装CUDA，不要安装 openGL, 不要用CUDA自带的显卡驱动, 安装完成后，修改 ~/.bashrc
+- step4, 安装CUDA，不要安装 openGL, 不要用CUDA自带的显卡驱动,
 ```
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
-export CUDA_HOME=/usr/local/cuda
+sudo ./cuda_8.0.61_375.26_linux.run
 ```
 
 - step5, 安装 cudnn
 ```
 tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz
-cd cuda
-sudo cp lib64/* /usr/local/cuda/lib64/
-sudo cp include/cudnn.h /usr/local/cuda/include/
+cd cudnn && sudo cp lib64/* /usr/local/cuda/lib64/ && sudo cp include/cudnn.h /usr/local/cuda/include/
 ```
+- 安装完成后，修改 ~/.bashrc
 ```
 vim ~/.bashrc
-export CUDA_HOME=/usr/local/cuda
-export PATH=${CUDA_HOME}/bin/:$PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_HOME/lib64:$CUDA_HOME/extras/CUPTI/lib64
+export CUDA_HOME=""/usr/local/cuda"
+export PATH=""${CUDA_HOME}/bin/:$PATH"
+export LD_LIBRARY_PATH=""$LD_LIBRARY_PATH:$CUDA_HOME/lib64:$CUDA_HOME/extras/CUPTI/lib64"
 ```
 
 - 测试
 ```
-cd /path/to/NVIDIA_CUDA-8.0_Samples
+nvidia-smi
+cd ~/NVIDIA_CUDA-8.0_Samples
 make all -j4
-/path/to/NVIDIA_CUDA-8.0_Samples/bin/x86_64/linux/release/deviceQuery    
+~/NVIDIA_CUDA-8.0_Samples/bin/x86_64/linux/release/deviceQuery
 ```
-
-
-Another way
-
-```
-# Install cuda 
-# Get your deb cuda file from https://developer.nvidia.com/cuda-downloads
-sudo dpkg -i dev.file
-sudo apt update
-sudo apt install cuda
-
-# Add cuda to your PATH and install the toolkit
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-nvcc --version
-
-# Use the toolkit to check your CUDA capable devices
-cuda-install-samples-8.0.sh ~/.
-cd ~/NVIDIA_CUDA-8.0_Samples/1_Utilities/deviceQuery
-make
-shutdown -r now
-./deviceQuery
-
-# Downloads cudnn deb files from the nvidia website: 
-# https://developer.nvidia.com/rdp/cudnn-download
-# Install cudnn
-tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz 
-sudo mv cuda/include/* /usr/local/cuda-8.0/include/.
-sudo mv cuda/lib64/* /usr/local/cuda-8.0/lib64/.
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-```
-
 
 ## Install Tensorflow
-
-[Tensorflow.org Guide](https://www.tensorflow.org/install/install_linux#InstallingNativePip)
-
+[Tensorflow.org install Guide](https://www.tensorflow.org/install/install_linux#InstallingNativePip)
 ```
-pip install tensorflow-gpu==1.2 
+pip install tensorflow-gpu==1.2
 pip install keras
 ```
 
@@ -117,16 +82,7 @@ NOTE:
 - Tensorflow 1.3 require different ducnn lib
 
 
-## Re-install driver
-
-```
-# Remove anything linked to nvidia
-sudo apt-get remove --purge nvidia*
-sudo apt-get autoremove
-
-# Search for your driver
-apt search nvidia
-
-# Select one driver (the last one is a decent choice)
-sudo apt install nvidia-370
-```
+## Reference
+http://shomy.top/2016/12/29/gpu-tensorflow-install/
+http://www.jianshu.com/p/f459f4ab0d99
+https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide
