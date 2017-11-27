@@ -81,8 +81,28 @@ NOTE:
 
 - Tensorflow 1.3 require different ducnn lib
 
-
 ## Reference
+Useful links:
 http://shomy.top/2016/12/29/gpu-tensorflow-install/
 http://www.jianshu.com/p/f459f4ab0d99
 https://github.com/BVLC/caffe/wiki/Ubuntu-16.04-or-15.10-Installation-Guide
+
+Show driver version
+
+```
+echo "nvidia driver version"
+cat /proc/driver/nvidia/version && nvidia-smi
+```
+
+Uninstallation
+
+```
+echo "To uninstall the CUDA Toolkit"
+sudo /usr/local/cuda-7.5/bin/uninstall_cuda_7.5.pl
+
+echo "To uninstall the NVIDIA Driver, run nvidia-uninstall"
+sudo /usr/bin/nvidia-uninstall
+
+# If you installed CUDA 7.5 using the .deb package:
+sudo apt-get purge cuda-7.5
+```
