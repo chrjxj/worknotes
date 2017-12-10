@@ -15,6 +15,15 @@ References:
 - 文件在host和docker container之间拷贝: ```docker cp <containerId>:/file/path/within/container /host/path/target```
 
 
+#### docker save, export, load and import
+
+- 导出(Export): Export命令用于持久化容器（不是镜像）: ```sudo docker export <CONTAINER ID> > export.tar```
+- 保存(Save)Save命令用于持久化镜像（不是容器）： ```sudo docker save <IMAGE NAME or ID> > save.tar```
+
+- docker load用来载入镜像包: ``` sudo docker load < save.tar```
+- docker import用来载入容器包:
+- docker load 和 import 两者都会恢复为镜像；
+- docker load不能对载入的镜像重命名，而docker import可以为镜像指定新名称
 
 
 ### Docker Applications
@@ -43,14 +52,9 @@ docker run --name ss_server --restart=always -d -p 54001:54001 oddrationale/dock
 https://hub.docker.com/r/hwdsl2/ipsec-vpn-server/
 
 docker run \
- --name ipsec-vpn-server \
- --env-file ~/docker_vpn.env \
- --restart=always \
- -p 500:500/udp \
- -p 4500:4500/udp \
- -v /lib/modules:/lib/modules:ro \
- -d --privileged \
- hwdsl2/ipsec-vpn-server
+ --name ipsec-vpn-server  --env-file ~/docker_vpn.env \
+ --restart=always -p 500:500/udp -p 4500:4500/udp \
+ -v /lib/modules:/lib/modules:ro -d --privileged hwdsl2/ipsec-vpn-server
 
 #### ubuntu 服务器
 
@@ -59,6 +63,36 @@ docker pull ubuntu:16.04
 docker run  --name medical-dev  --restart=always  -p 58888:8888  -d --privileged  ubuntu:16.04
 ```
 
+## Nvidia-Docker
+
+
+
+### Setup Nvidia-Docker
+
+- DO NOT USE commands and steps in https://github.com/NVIDIA/nvidia-docker
+
+- Instead, go to https://github.com/NVIDIA/nvidia-docker/releases and download nvidia-docker_*.deb; sample command:
+
+```
+wget https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+sudo dpkg -i nvidia-docker*.deb
+echo 'make sure to install nvidia-modprobe'
+sudo apt install nvidia-modprobe
+echo 'make sure to reboot and check if nvidia-docker start with system boot'
+sudo reboot
+journalctl -n -u nvidia-docker
+```
+
+### Use Nvidia-Docker and GPU in Dockerfile
+
+https://stackoverflow.com/questions/41346401/use-nvidia-docker-compose-launch-a-container-but-exited-soon
+https://stackoverflow.com/questions/41346401/use-nvidia-docker-compose-launch-a-container-but-exited-soon#comment73796775_41947086
+
+384.90
+
+docker volume create --name=nvidia_driver_384.90 -d nvidia-docker
+
+docker volume create --name=nvidia_driver_367.57 -d nvidia-docker
 
 ## Appendix
 

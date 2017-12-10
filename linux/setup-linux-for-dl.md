@@ -27,6 +27,8 @@ sudo apt-get install -y python3-dev python3-numpy python3-scipy libopencv-dev
 
 ## 安装CUDA and cudnn
 
+make sure download from [nvidia site](https://developer.nvidia.com/gpu-accelerated-libraries) and read [offical guide](http://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
+
 - Check env
 ```
 lspci -vnn | grep -i VGA -A 12
@@ -52,7 +54,7 @@ sudo ./cuda_8.0.61_375.26_linux.run
 - step5, 安装 cudnn
 ```
 tar -zxvf cudnn-8.0-linux-x64-v5.1.tgz
-cd cudnn && sudo cp lib64/* /usr/local/cuda/lib64/ && sudo cp include/cudnn.h /usr/local/cuda/include/
+cd cuda && sudo cp lib64/* /usr/local/cuda/lib64/ && sudo cp include/cudnn.h /usr/local/cuda/include/
 ```
 - 安装完成后，修改 ~/.bashrc
 ```
@@ -78,8 +80,8 @@ pip install keras
 ```
 
 NOTE:
-
-- Tensorflow 1.3 require different ducnn lib
+- cuddn version: "cudnn-8.0-linux-x64-v5.1.tgz" means cudnn v5.1 for CUDA 8.0;
+- Tensorflow 1.3+ requires ducnn 6.0
 
 ## Reference
 Useful links:

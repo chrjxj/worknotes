@@ -1,10 +1,8 @@
 #!/bin/bash
 
 echo 'install very basic tools'
-sudo apt-get install -y --no-install-recommends openssh-server openssh-client vim wget
-
 sudo apt-get update && sudo apt-get install -y --no-install-recommends \
-  vnc4server unrar gvim-qt screen filezilla filezilla-locales apache2
+    openssh-server openssh-client vim wget vim-* vnc4server screen apache2
 
 echo 'Install shadowsocks, Sublime Text 3, and Atom'
 sudo add-apt-repository ppa:hzwhuang/ss-qt5 && sudo add-apt-repository ppa:webupd8team/atom && \

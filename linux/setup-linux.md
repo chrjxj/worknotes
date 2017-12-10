@@ -1,6 +1,6 @@
-﻿# Setup Ubuntu # 
+﻿# Setup Ubuntu #
 
-skip basic installation steps. 
+skip basic installation steps.
 
 ## 安装常用软件
 
@@ -22,6 +22,44 @@ sudo add-apt-repository ppa:webupd8team/atom
 sudo apt update; sudo apt install atom
 ```
 
+## Setup SS client
+Great [setup reference](https://jingsam.github.io/2016/05/08/setup-shadowsocks-http-proxy-on-ubuntu-server.html)
+
+install:
+
+```
+sudo apt-get install python python-pip && sudo pip install shadowsocks && sudo mkdir /etc/shadowsocks && sudo touch /etc/shadowsocks/config.json
+sudo apt-get install polipo
+```
+
+Setup
+```
+sudo vim /etc/shadowsocks/config.json
+{
+  "server": "{your-server}",
+  "server_port": 40002,
+  "local_port": 1080,
+  "password": "{your-password}",
+  "timeout": 600,
+  "method": "aes-256-cfb"
+}
+
+sudo vim /etc/polipo/config
+
+logSyslog = true
+logFile = /var/log/polipo/polipo.log
+proxyAddress = "0.0.0.0"
+socksParentProxy = "127.0.0.1:1080"
+socksProxyType = socks5
+chunkHighMark = 50331648
+objectHighMark = 16384
+serverMaxSlots = 64
+serverSlots = 16
+serverSlots1 = 32
+
+sudo /etc/init.d/polipo restart && sudo sslocal -c /etc/shadowsocks/config.json -d start && export http_proxy="http://127.0.0.1:8123/"
+```
+
 ## Install Ubuntu desktop
 
 - Install Ubuntu desktop ```sudo apt-get install ubuntu-desktop```
@@ -35,7 +73,7 @@ sudo apt update; sudo apt install atom
 ## 安装新硬盘
 
 ```
-sudo fdisk -l 
+sudo fdisk -l
 # use 'n' - new; use 'p' - display
 sudo fdisk
 sudo mkfs -t ext4 /dev/sda1
