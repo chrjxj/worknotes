@@ -87,6 +87,7 @@ sudo mount /dev/sda1 /data/v2
 ```
 sudo apt-get update && \
 sudo apt-get install apache2
+# see details on https://github.com/nodesource/distributions
 # Using Ubuntu
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs 
