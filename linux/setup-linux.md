@@ -82,6 +82,20 @@ sudo mount /dev/sda1 /data/v2
 ```
 
 
+## 安装Web环境
+
+```
+sudo apt-get update && \
+sudo apt-get install apache2
+# Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+sudo apt-get install -y nodejs 
+node -v 
+
+curl http://npmjs.org/install.sh | sudo sh
+```
+
+
 #### apt and apt-get
 
 ```
