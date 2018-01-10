@@ -96,6 +96,14 @@ node -v
 curl http://npmjs.org/install.sh | sudo sh
 ```
 
+## 移除不常用的软件
+
+```
+sudo apt purge -y libreoffice-common
+sudo apt purge -y unity-webapps-common
+sudo apt purge -y thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese gnome-sudoku transmission-common gnome-orca webbrowser-app landscape-client-ui-install
+sudo apt purge -y deja-dup
+```
 
 #### apt and apt-get
 
