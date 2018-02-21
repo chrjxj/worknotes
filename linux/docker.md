@@ -6,7 +6,7 @@ References:
 - [Docker常用命令](http://www.jianshu.com/p/ff58311b0d06)
 - [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/content/)
 
-### Docker Commands
+#### Docker Commands
 
 - 挂载宿主机上目录到镜像 ```docker run -it -v /mnt/docker_ubuntu:/usr/Downloads ubuntu64 /bin/bash```
 - run a container: ```docker run -it --rm -p 8888:8888 -v /mnt/docker_ubuntu:/usr/Downloads jupyter/scipy-notebook```
@@ -26,7 +26,26 @@ References:
 - docker load不能对载入的镜像重命名，而docker import可以为镜像指定新名称
 
 
-### Docker Applications
+
+## nvidia-docker
+
+Setup guide:
+
+- DO NOT USE commands and steps in https://github.com/NVIDIA/nvidia-docker
+- Instead, go to https://github.com/NVIDIA/nvidia-docker/releases and download nvidia-docker_*.deb
+
+```
+wget https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+sudo dpkg -i nvidia-docker*.deb
+echo 'make sure to install nvidia-modprobe'
+sudo apt install -y nvidia-modprobe
+echo 'make sure to reboot and check if nvidia-docker start with system boot'
+sudo reboot
+journalctl -n -u nvidia-docker
+```
+
+
+## Docker Applications
 
 #### 搭建 Jupyter 服务器
 

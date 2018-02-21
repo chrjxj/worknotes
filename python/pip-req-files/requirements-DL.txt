@@ -1,0 +1,7 @@
+#tensorflow==1.4
+tensorflow-gpu==1.4
+keras
+pandas
+scikit-learn
+scikit-image
+click

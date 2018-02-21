@@ -1,0 +1,16 @@
+﻿# 添加阿里源到如下列表中
+# sudo vim /etc/apt/sources.list.d/aliyun.list #修改
+# 更新列表
+# sudo apt-get update 
+
+deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
+
+# deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse
+# deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse
