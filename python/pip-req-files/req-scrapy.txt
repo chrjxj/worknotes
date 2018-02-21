@@ -1,0 +1,8 @@
+Redis >= 2.8
+Scrapy >= 1.0
+redis-py >= 2.10
+Pillow
+requests
+numpy
+click
+icrawler

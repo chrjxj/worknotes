@@ -1,0 +1,8 @@
+﻿# Flask for Virtual Env Setup
+flask
+flask-cors
+tensorflow-gpu==1.4
+pandas
+scikit-learn
+scikit-image
+openslide-python

@@ -1,0 +1,9 @@
+﻿tensorflow==1.4
+Pillow
+click
+scikit-learn
+scikit-image
+pandas
+flask
+requests
+ipython==5.0
