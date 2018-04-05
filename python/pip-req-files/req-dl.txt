@@ -5,3 +5,6 @@ pandas
 scikit-learn
 scikit-image
 click
+tqdm
+ipython==5.0
+jupyterlab
