@@ -16,3 +16,19 @@ cd Python-2.7.15
 ./configure
 make && make install
 ```
+
+
+```
+mv /usr/bin/python /usr/bin/python.old
+rm -f /usr/bin/python-config
+ln -s /usr/local/bin/python /usr/bin/python && ln -s /usr/local/bin/python-config /usr/bin/python-config && ln -s /usr/local/include/python2.7/ /usr/include/python2.7
+
+
+python --version
+
+```
+
+```
+wget https://bootstrap.pypa.io/ez_setup.py -O - | python
+easy_install pip
+```
