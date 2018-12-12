@@ -6,6 +6,9 @@
 
 find . -type f |xargs wc -l
 
+# 一次性删除某目录及其子目录下所有的exe文件。
+find . -name '*.exe' -type f -print -exec rm -rf {} \;
+
 du -sh
 
 ls -lh
@@ -50,4 +53,33 @@ chmod go-rwx file      (Deny rwx permission for group, others)
 chmod g+w file         (Give write permission to the group)
 chmod a+x file1 file2  (Give execute permission to everybody)
 chmod g+rx,o+x file    (OK to combine like this with a comma)
-```     
+```
+
+
+
+
+### check system info 
+
+```sudo dmidecode -t 4 | egrep -i "Designation|Intel|core|thread"```
+
+sample results:
+
+```
+	Socket Designation: CPU 0
+	Core Count: 16
+	Core Enabled: 16
+	Thread Count: 1
+```
+
+```
+    	Socket Designation: SOCKET 0
+    	Manufacturer: Intel
+    		HTT (Multi-threading)
+    	Version: Intel(R) Core(TM) i7-6800K CPU @ 3.40GHz
+    	Core Count: 6
+    	Core Enabled: 6
+    	Thread Count: 12
+    		Multi-Core
+    		Hardware Thread
+```    
+         
