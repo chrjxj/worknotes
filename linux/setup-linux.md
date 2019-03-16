@@ -70,6 +70,43 @@ sudo /etc/init.d/polipo restart && sudo sslocal -c /etc/shadowsocks/config.json 
 - Gnome Classic a Gnome 3 desktop that looks like Gnome 2 installation: ```sudo apt-get install gnome-session-fallback```
 
 
+## 设置远程桌面
+
+- reference:  
+    - https://www.htcp.net/2524.html
+    - https://cloudcone.com/docs/article/install-desktop-vnc-ubuntu-16-04/
+
+- install desktop and VNC server
+
+```
+apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
+apt install vnc4server -y
+```
+
+- 修改 ~/.vnc/xstartup
+
+```
+#!/bin/sh
+ 
+# Uncomment the following two lines for normal desktop:
+# unset SESSION_MANAGER
+# exec /etc/X11/xinit/xinitrc
+ 
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey 
+vncconfig -iconic &
+x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+x-window-manager &
+        
+gnome-panel &
+gnome-settings-daemon &
+metacity &
+nautilus &
+```
+
+- note: Gnome 3 和 Unity 桌面，由于兼容性问题，连上后会什么也无法显示。所以在这里远程桌面连接只能使用 gnome 2
+
 ## 安装新硬盘
 
 ```
