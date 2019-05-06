@@ -5,8 +5,7 @@ skip basic installation steps.
 ## 安装常用软件
 
 ```
-sudo apt-get install python-pip python-dev python3-pip python3-dev python-virtualenv vnc4server vim git wget unrar gvim-qt screen
-sudo apt-get install filezilla filezilla-locales
+sudo apt-get install -y python-pip python-dev python3-pip python3-dev python-virtualenv vnc4server vim git wget unrar screen filezilla
 
 echo 'Install shadowsocks'
 sudo add-apt-repository ppa:hzwhuang/ss-qt5
@@ -138,8 +137,7 @@ curl http://npmjs.org/install.sh | sudo sh
 ```
 sudo apt purge -y libreoffice-common
 sudo apt purge -y unity-webapps-common
-sudo apt purge -y thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese gnome-sudoku transmission-common gnome-orca webbrowser-app landscape-client-ui-install
-sudo apt purge -y deja-dup
+sudo apt purge -y thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese gnome-sudoku transmission-common gnome-orca webbrowser-app landscape-client-ui-install deja-dup
 ```
 
 #### apt and apt-get
