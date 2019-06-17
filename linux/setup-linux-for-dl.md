@@ -13,7 +13,7 @@
 找到适合的正确的驱动去nvidia驱动官网下载 run
 
 卸载掉原有驱动
-  * sudo apt-get remove –purge nvidia*
+  * sudo apt-get remove --purge '^nvidia-.*'
   * 如果使用的是apt-get安装可以使用这种方法卸载，如果使用的是runfile，则使用--uninstall命令，当然runfile安装的时候会卸载掉之前的驱动，所以可以不用手动去卸载。
 
 禁用nouveau
