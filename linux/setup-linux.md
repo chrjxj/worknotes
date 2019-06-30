@@ -5,7 +5,9 @@ skip basic installation steps.
 ## 安装常用软件
 
 ```
-sudo apt-get install -y python-pip python-dev python3-pip python3-dev python-virtualenv vnc4server vim git wget unrar screen filezilla
+sudo apt-get install -y python-pip python-dev python3-pip python3-dev python-virtualenv vnc4server vim git wget screen filezilla
+wget https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat -o /usr/local/bin/imgcat
+chmod +x /usr/local/bin/imgcat
 
 echo 'Install shadowsocks'
 sudo add-apt-repository ppa:hzwhuang/ss-qt5
