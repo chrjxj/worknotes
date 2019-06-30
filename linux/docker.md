@@ -46,25 +46,32 @@ journalctl -n -u nvidia-docker
 
 ## Docker 中国官方镜像加速
 
-src: https://www.docker-cn.com/registry-mirror
+reference: 
+
+- https://www.docker-cn.com/registry-mirror
+- https://yeasy.gitbooks.io/docker_practice/install/mirror.html
 Docker 中国官方镜像加速可通过 registry.docker-cn.com 访问。该镜像库只包含流行的公有镜像。私有镜像仍需要从美国镜像库中拉取。
 
-您可以使用以下命令直接从该镜像加速地址进行拉取：
+对于使用 systemd 的系统(Ubuntu 16.04+、Debian 8+、CentOS 7)，请在 /etc/docker/daemon.json 中写入如下内容（如果文件不存在请新建该文件）
 
-$ docker pull registry.docker-cn.com/myname/myrepo:mytag
-例如:
-```bazaar
-$ docker pull registry.docker-cn.com/library/ubuntu:16.04
-```
-
-为了永久性保留更改，修改 /etc/docker/daemon.json 添加上 registry-mirrors 键值。
 ```
 {
-  "registry-mirrors": ["https://registry.docker-cn.com"]
+  "registry-mirrors": [
+    "https://1nj0zren.mirror.aliyuncs.com",
+    "https://docker.mirrors.ustc.edu.cn",
+    "http://f1361db2.m.daocloud.io",
+    "https://registry.docker-cn.com",
+    "https://dockerhub.azk8s.cn",
+    "https://reg-mirror.qiniu.com"
+  ]
 }
 ```
 
+注意，一定要保证该文件符合 json 规范，否则 Docker 将不能启动。之后重新启动服务。
 
+```
+sudo systemctl daemon-reload && sudo systemctl restart docker
+```
 
 
 ## Docker Applications
