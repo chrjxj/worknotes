@@ -13,7 +13,7 @@
 找到适合的正确的驱动去nvidia驱动官网下载 run
 
 卸载掉原有驱动
-  * sudo apt-get remove –purge nvidia*
+  * sudo apt-get remove --purge '^nvidia-.*'
   * 如果使用的是apt-get安装可以使用这种方法卸载，如果使用的是runfile，则使用--uninstall命令，当然runfile安装的时候会卸载掉之前的驱动，所以可以不用手动去卸载。
 
 禁用nouveau
@@ -29,11 +29,12 @@
 
 - 进入命令行界面 `Ctrl-Alt+F1`
 - 给驱动run文件赋予执行权限 `sudo chmod a+x NVIDIA-Linux-x86_64-375.20.run`
-- 安装(注意 参数!!!): `sudo ./NVIDIA-Linux-x86_64-375.20.run -–no-opengl-files -–no-nouveau-check -–no-x-check`
+- 安装(注意 参数!!!): `sudo ./NVIDIA-Linux-x86_64-375.20.run --no-opengl-files --no-nouveau-check --no-x-check`
 
-  –no-opengl-files 只安装驱动文件，不安装OpenGL文件。这个参数最重要
-  –no-x-check 安装驱动时不检查X服务
-  –no-nouveau-check 安装驱动时不检查nouveau
+  * no-opengl-files 只安装驱动文件，不安装OpenGL文件。这个参数最重要
+  * no-x-check 安装驱动时不检查X服务
+  * no-nouveau-check 安装驱动时不检查nouveau
+
   - 后面两个参数可不加。
   - 禁忌安装CUDA时一定使用runfile文件，这样可以进行选择。不再选择安装驱动，以及在弹出xorg.conf时选择 NO
   - 不要使用ubuntu设置中附加驱动中驱动
