@@ -183,3 +183,12 @@ sudo /usr/bin/nvidia-uninstall
 # If you installed CUDA 7.5 using the .deb package:
 sudo apt-get purge cuda-7.5
 ```
+
+## Tensorflow vs. CUDA/cudnn Versions
+
+
+![Linux](assets/20190708213655564.png)
+
+![Windows](assets/20190708213810637.png)
+
+

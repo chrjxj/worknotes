@@ -1,12 +1,38 @@
-﻿
+﻿# Download Videos # 
+
 ## youtube-dl
 
 
-https://rg3.github.io/youtube-dl/download.html
+### install
+
+- Linux:
 
 ```
-sudo -H pip install youtube_dl
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
 ```
+
+- Mac OS: `brew install youtube-dl`
+
+
+
+### 常用命令
+
+
+```
+youtube-dl -i -f mp4 --yes-playlist 'https://www.youtube.com/watch?v=7Vy8970q0Xc&list=PLwJ2VKmefmxpUJEGB1ff6yUZ5Zd7Gegn2'
+
+youtube-dl -i PLwJ2VKmefmxpUJEGB1ff6yUZ5Zd7Gegn2
+
+#Download YouTube playlist videos in separate directory indexed by video order in a playlist
+youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'  https://www.youtube.com/playlist?list=PLE72E21ED4751B5EC
+
+```
+
+## youku-dl
+
+
+TBA
 
 
 ## 视频转图像
