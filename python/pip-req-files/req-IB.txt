@@ -1,0 +1,10 @@
+﻿numpy
+pandas
+requests
+ipython==5.0
+IbPy2==0.8.0
+lxml == 3.4.4
+tushare
+# GUI
+qtpy
+pyqtgraph

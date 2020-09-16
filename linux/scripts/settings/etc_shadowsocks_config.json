@@ -1,0 +1,8 @@
+{
+  "server": "{your-server}",
+  "server_port": 40002,
+  "local_port": 1080,
+  "password": "{your-password}",
+  "timeout": 600,
+  "method": "aes-256-cfb"
+}

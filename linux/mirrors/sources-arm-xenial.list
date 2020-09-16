@@ -1,0 +1,12 @@
+# Ubuntu的arm版本是使用单独的源，使用ports.ubuntu.com，中科大的有提供，速度还算不错
+# 修改/etc/apt/sources.list文件，内容全部替换成如下：
+# 再执行更新操作: sudo apt-get update && sudo apt-get dist-upgrade
+
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial main main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-updates main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-backports main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-backports main restricted universe multiverse
+deb https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-security main restricted universe multiverse
+deb-src https://mirrors.ustc.edu.cn/ubuntu-ports/ xenial-security main restricted universe multiverse

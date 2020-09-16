@@ -5,22 +5,14 @@ skip basic installation steps.
 ## 安装常用软件
 
 ```
-sudo apt-get install -y python-pip python-dev python3-pip python3-dev python-virtualenv vnc4server vim git wget screen filezilla
-wget https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/imgcat -o /usr/local/bin/imgcat
-chmod +x /usr/local/bin/imgcat
+sudo add-apt-repository ppa:webupd8team/sublime-text-3 && sudo add-apt-repository ppa:hzwhuang/ss-qt5 && sudo add-apt-repository ppa:webupd8team/atom
 
-echo 'Install shadowsocks'
-sudo add-apt-repository ppa:hzwhuang/ss-qt5
-sudo apt-get update
-sudo apt-get install shadowsocks-qt5
+sudo apt-get update && sudo apt-get install -y python-pip python-dev python3-pip python3-dev python-virtualenv vnc4server git wget tmux screen filezilla
 
-echo 'Sublime Text 3'
-sudo add-apt-repository ppa:webupd8team/sublime-text-3
-sudo apt-get update
-sudo apt-get install sublime-text
+sudo pip install shadowsocks polipo 
 
-sudo add-apt-repository ppa:webupd8team/atom
-sudo apt update; sudo apt install atom
+
+sudo apt install atom
 ```
 
 ## Setup SS client
@@ -29,7 +21,7 @@ Great [setup reference](https://jingsam.github.io/2016/05/08/setup-shadowsocks-h
 install:
 
 ```
-sudo apt-get install python python-pip && sudo pip install shadowsocks && sudo mkdir /etc/shadowsocks && sudo touch /etc/shadowsocks/config.json
+sudo apt-get install python python-pip && sudo pip install shadowsocks polipo && sudo mkdir /etc/shadowsocks && sudo touch /etc/shadowsocks/config.json
 sudo apt-get install polipo
 ```
 
@@ -112,9 +104,12 @@ nautilus &
 
 ```
 sudo fdisk -l
-# use 'n' - new; use 'p' - display
-sudo fdisk
+
+# use 'n' - new; use 'p' - display; use 'w' - save and exit
+sudo fdisk /dev/sda1
+
 sudo mkfs -t ext4 /dev/sda1
+
 # add this to /etc/rc.local
 sudo mount /dev/sda1 /data/v2
 ```
@@ -123,8 +118,7 @@ sudo mount /dev/sda1 /data/v2
 ## 安装Web环境
 
 ```
-sudo apt-get update && \
-sudo apt-get install apache2
+sudo apt-get update && sudo apt-get install apache2
 # see details on https://github.com/nodesource/distributions
 # Using Ubuntu
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
@@ -137,12 +131,22 @@ curl http://npmjs.org/install.sh | sudo sh
 ## 移除不常用的软件
 
 ```
-sudo apt purge -y libreoffice-common
-sudo apt purge -y unity-webapps-common
-sudo apt purge -y thunderbird totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot gnome-mines cheese gnome-sudoku transmission-common gnome-orca webbrowser-app landscape-client-ui-install deja-dup
+sudo apt purge -y libreoffice-common unity-webapps-common thunderbird \
+    totem rhythmbox empathy brasero simple-scan gnome-mahjongg aisleriot \
+    gnome-mines cheese gnome-sudoku transmission-common gnome-orca \
+    webbrowser-app landscape-client-ui-install deja-dup
 ```
 
-#### apt and apt-get
+
+## aliyun 
+
+
+http://blog.bytemem.com/post/setup-ubuntu-repo-source-aliyun
+
+## 参考
+
+
+#### apt and apt-get 命令
 
 ```
 apt list --installed
