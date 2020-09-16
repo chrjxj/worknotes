@@ -81,6 +81,7 @@ reference links:
     source activate yourenvname
     
     conda install -n yourenvname [package]
+    conda install --file requirements. txt    
     
     source deactivate
     
@@ -126,6 +127,8 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 可以在pip后面跟-i 来指定源
 
 ```
+pip install -r requirements.txt -i http://mirrors.aliyun.com/pypi/simple 
+
 pip install \
   -i https://pypi.tuna.tsinghua.edu.cn/simple/ \
   https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/gpu/tensorflow_gpu-1.4.0-cp36-cp36m-linux_x86_64.whl
