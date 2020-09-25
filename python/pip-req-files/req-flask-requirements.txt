@@ -1,7 +1,7 @@
 ﻿# Flask for Virtual Env Setup
 flask
 flask-cors
-tensorflow-gpu==1.4
+tensorflow-gpu==1.15.4
 pandas
 scikit-learn
 scikit-image
