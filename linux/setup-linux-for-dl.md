@@ -186,6 +186,7 @@ sudo apt-get purge cuda-7.5
 
 ## Tensorflow vs. CUDA/cudnn Versions
 
+reference: https://www.tensorflow.org/install/source?hl=zh-cn#linux
 
 ![Linux](assets/20190708213655564.png)
 
